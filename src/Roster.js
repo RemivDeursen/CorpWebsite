@@ -1,5 +1,4 @@
 import './Roster.css';
-import { GoogleSpreadsheet } from 'google-spreadsheet'
 //URL FOR HELP
 //https://github.com/theoephraim/node-google-spreadsheet
 import boss1 from './images/Shriekwing2.png';
@@ -9,6 +8,7 @@ import boss4 from './images/Sunking2.png';
 import boss5 from './images/Inerva2.png';
 import boss6 from './images/artificer2.png';
 import React from 'react'
+import {Card, CardBody, Col, Row} from "reactstrap";
 
 const bosses = [boss1, boss2, boss3, boss4, boss5, boss6]
 
@@ -28,18 +28,23 @@ const Roster = ({ rosters, isLoaded }) =>{
                 );
             });
             return(
-                <div key={i}>
+                <Col key={i}>
                     <img src={bosses[i]} className="BossLogo" alt="logo"/>
                     <h3>{name}</h3>
-                    <p>{bossRoster}</p>
-                </div>
+                    <span>{bossRoster}</span>
+                </Col>
             )
         });
         return(
             // <Roster roster={bossList}/>
-            <div className="Roster">
-                <div>{bossList}</div>
-            </div>
+
+            <Card className="card-tasks">
+                <CardBody>
+                <Row className="Roster">
+                    {bossList}
+                </Row>
+                </CardBody>
+            </Card>
     )
     }
 }

@@ -1,8 +1,9 @@
 import './App.css';
-import {Component} from "react/cjs/react.production.min";
 import Roster from './Roster';
+import React from "react";
+import {Card, CardBody, Col} from "reactstrap";
 
-class App extends Component {
+class App extends React.Component {
   state = {
       rosters: [],
       isLoaded: false, // Initial Loading State
@@ -22,31 +23,18 @@ class App extends Component {
   }
   render() {
       return(
-          <Roster isLoaded={this.state.isLoaded} rosters={this.state.rosters}/>
+          <>
+              <div className="content">
+                  <Card className="card-stats">
+                      <CardBody>
+                        <Roster isLoaded={this.state.isLoaded} rosters={this.state.rosters}/>
+                      </CardBody>
+                  </Card>
+              </div>
+          </>
           )
   }
 
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
